@@ -12,6 +12,6 @@ node {
   }
 
   stage('Push to aptible') {
-    sh "git push aptible master"
+    sh "git push aptible $(git rev-parse --short HEAD)"
   }
 }
