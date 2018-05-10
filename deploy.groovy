@@ -12,6 +12,8 @@ node {
   }
 
   stage('Push to aptible') {
-    sh "git push aptible $(git rev-parse --short HEAD)"
+    def ref = sh(script: 'git rev-parse --short HEAD', returnStdout: true)
+
+    sh "git push aptible ${ref}"
   }
 }
