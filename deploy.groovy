@@ -12,6 +12,7 @@ node {
   }
 
   stage('Push to aptible') {
-    sh "git push aptible ${env.BRANCH_NAME}"
+    print env.getEnvironment()
+    sh "git push aptible ${env.BRANCH}"
   }
 }
